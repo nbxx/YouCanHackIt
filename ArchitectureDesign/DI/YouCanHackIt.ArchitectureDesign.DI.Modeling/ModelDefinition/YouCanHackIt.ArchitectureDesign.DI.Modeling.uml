@@ -1,0 +1,243 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm9="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ComponentDesigner"
+  dslVersion="1.0.0.0"
+  Id="2b9d5f50-3188-4b81-8cab-90ffbbe5b6b2"
+  name="YouCanHackIt.ArchitectureDesign.DI.Modeling" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <ownedCommentsInternal>
+    <comment
+      Id="61965a2a-e1c8-49cb-9a08-54e18db588ec">
+      <body>3 uses</body>
+    </comment>
+    <comment
+      Id="1e671ea1-fc0d-4a33-b4fd-586c617e159a">
+      <body>1 creates</body>
+    </comment>
+    <comment
+      Id="36085f29-c3af-4786-abe4-9cbd7bd22c36">
+      <body>2.2 injects dependencies</body>
+    </comment>
+    <comment
+      Id="431cacdf-62eb-460a-9efa-26bb0568a889">
+      <body>2.1 creates dependencies</body>
+    </comment>
+    <comment
+      Id="938fc829-b51f-4799-b6b5-223b23fccde9">
+      <body>uses</body>
+    </comment>
+    <comment
+      Id="4bdac5ca-d697-4f88-9ba1-8e743fd6d5c7">
+      <body>locates</body>
+    </comment>
+    <comment
+      Id="ef1d706f-0037-49fb-9a10-0d19d2bc8069">
+      <body>locates</body>
+    </comment>
+  </ownedCommentsInternal>
+  <profileInstances>
+    <packageHasProfileInstances
+      Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b">
+      <profileInstance
+        Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791"
+        name="StandardProfileL2" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances
+      Id="29349502-908c-4fda-9054-c48619c59ed0">
+      <profileInstance
+        Id="532ea607-fb19-44b8-8502-3351b05452be"
+        name="StandardProfileL3" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances
+      Id="988af919-342d-4ec8-9362-7b806784001e">
+      <profileInstance
+        Id="7bfc6e84-f8b4-4d88-8b7c-a3a691669080"
+        name="TextTemplateBindings" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <packageHasNamedElement>
+      <class
+        Id="82390390-59aa-46f2-8d60-0dc00f4ea960"
+        name="Class1"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <component
+        Id="2a5e61cf-de79-4f6f-8fe3-073a018c8c49"
+        name="Builder"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="cda62146-223c-4e15-8956-9760ac872313"
+            isSubstitutable="false">
+            <componentMoniker
+              Id="b6b5063a-cb2f-4f31-97a5-f9afdb76c751"
+              LastKnownName="Client"
+              LastKnownLocation="YouCanHackIt.ArchitectureDesign.DI.Modeling.uml" />
+            <description>1 ads</description>
+          </generalization>
+          <generalization
+            Id="d62a7875-9e03-4999-b6a7-0a2720b98920"
+            isSubstitutable="false">
+            <componentMoniker
+              Id="7101d909-1f52-4f9e-aaa6-7bd232d81681"
+              LastKnownName="Service"
+              LastKnownLocation="YouCanHackIt.ArchitectureDesign.DI.Modeling.uml" />
+          </generalization>
+        </generalsInternal>
+      </component>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <component
+        Id="b6b5063a-cb2f-4f31-97a5-f9afdb76c751"
+        name="Client"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <suppliersInternal>
+          <dependency
+            Id="2296c160-e2e7-4b43-bb38-d9b4ad43ee90">
+            <componentMoniker
+              Id="12bf9a91-4a26-44d0-bf17-6a68e1b00dec"
+              LastKnownName="IService"
+              LastKnownLocation="YouCanHackIt.ArchitectureDesign.DI.Modeling.uml" />
+          </dependency>
+        </suppliersInternal>
+      </component>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <component
+        Id="7101d909-1f52-4f9e-aaa6-7bd232d81681"
+        name="Service"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <suppliersInternal>
+          <dependency
+            Id="f05f5986-4f61-4fea-be59-429192f55c8b">
+            <componentMoniker
+              Id="12bf9a91-4a26-44d0-bf17-6a68e1b00dec"
+              LastKnownName="IService"
+              LastKnownLocation="YouCanHackIt.ArchitectureDesign.DI.Modeling.uml" />
+          </dependency>
+        </suppliersInternal>
+        <generalsInternal>
+          <generalization
+            Id="9a3bf9db-d81e-4b5b-a40d-ee39c7f396bb"
+            isSubstitutable="false">
+            <componentMoniker
+              Id="b6b5063a-cb2f-4f31-97a5-f9afdb76c751"
+              LastKnownName="Client"
+              LastKnownLocation="YouCanHackIt.ArchitectureDesign.DI.Modeling.uml" />
+          </generalization>
+        </generalsInternal>
+      </component>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <component
+        Id="12bf9a91-4a26-44d0-bf17-6a68e1b00dec"
+        name="IService"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <Interface
+        Id="fe8ccdfc-5e3e-4a02-a6cf-9b9304bfed68"
+        name="IService"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <Interface
+        Id="c315f4a9-1f8f-49ca-844d-726faff1f3bd"
+        name="IService"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <component
+        Id="bc39352a-1b72-48ec-b1fc-538577032414"
+        name="Client"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <suppliersInternal>
+          <dependency
+            Id="dc90b234-9482-4baf-bf10-ab15b3f62b3c">
+            <componentMoniker
+              Id="69ccf9d4-8cae-4d66-a742-99e6e0273ff3"
+              LastKnownName="Locator"
+              LastKnownLocation="YouCanHackIt.ArchitectureDesign.DI.Modeling.uml" />
+          </dependency>
+        </suppliersInternal>
+      </component>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <component
+        Id="69ccf9d4-8cae-4d66-a742-99e6e0273ff3"
+        name="Locator"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="b8579b97-4722-4495-843e-b54905d23fcd"
+            isSubstitutable="false">
+            <componentMoniker
+              Id="3b19185f-587b-4ec3-9a6b-c7a07467cd15"
+              LastKnownName="ServiceA"
+              LastKnownLocation="YouCanHackIt.ArchitectureDesign.DI.Modeling.uml" />
+          </generalization>
+          <generalization
+            Id="a6e6f61d-33ff-448f-b1ba-74ff1e129ecd"
+            isSubstitutable="false">
+            <componentMoniker
+              Id="4c6b074d-fbf6-4aff-a474-7e0805ea307e"
+              LastKnownName="ServiceB"
+              LastKnownLocation="YouCanHackIt.ArchitectureDesign.DI.Modeling.uml" />
+          </generalization>
+        </generalsInternal>
+      </component>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <component
+        Id="3b19185f-587b-4ec3-9a6b-c7a07467cd15"
+        name="ServiceA"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <component
+        Id="4c6b074d-fbf6-4aff-a474-7e0805ea307e"
+        name="ServiceB"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+  </packagedElements>
+  <primitiveType
+    Id="220a3521-e091-4221-bae9-3ef9018e845c"
+    name="Integer"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+    name="Boolean"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+    name="String"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="3ab42e7d-4969-445a-b209-471f5cb8209c"
+    name="UnlimitedNatural"
+    isAbstract="false"
+    isLeaf="false" />
+</modelStoreModel>

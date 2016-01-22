@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<componentModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" dslVersion="1.0.0.0" Id="20c43833-b706-44d6-a3bc-7ace9f086adc" name="ServiceLocatorComponentDiagram" linkedPackageId="8f46252e-afa8-4f0a-816a-2c90f8a3239d" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ComponentDesigner">
+  <ownedCommentsInternal>
+    <comment Id="cf907732-4ea6-468a-a90f-3f8895150723">
+      <elementDefinition Id="938fc829-b51f-4799-b6b5-223b23fccde9" />
+      <body>uses</body>
+    </comment>
+    <comment Id="9bf14188-7cad-43da-b74b-f493300f5687">
+      <elementDefinition Id="4bdac5ca-d697-4f88-9ba1-8e743fd6d5c7" />
+      <body>locates</body>
+    </comment>
+    <comment Id="e8e512ca-8bfb-4ac9-ba6c-1eda742ea77a">
+      <elementDefinition Id="ef1d706f-0037-49fb-9a10-0d19d2bc8069" />
+      <body>locates</body>
+    </comment>
+  </ownedCommentsInternal>
+  <profileInstances>
+    <packageHasProfileInstances Id="8e8829d6-8028-44ce-b72f-510cb63ee033">
+      <profileInstance Id="109c0419-888c-4542-a3c6-74c9798bed9f" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="8e4f6656-28be-4747-8d00-1b09e88aac5e">
+      <profileInstance Id="b818421d-833e-4cba-8ef1-d145698238a9" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="511d2a2f-048e-49d6-bc21-99cb4fcf55b8">
+      <profileInstance Id="28053260-d78c-4eaf-8938-19c9cf25a2c1" name="TextTemplateBindings">
+        <elementDefinition Id="7bfc6e84-f8b4-4d88-8b7c-a3a691669080" />
+      </profileInstance>
+      <elementDefinition Id="988af919-342d-4ec8-9362-7b806784001e" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <componentModelHasComponents>
+      <component Id="b16740a1-096d-4632-a8e1-34328163016e" name="Client" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="bc39352a-1b72-48ec-b1fc-538577032414" />
+        <suppliersInternal>
+          <dependency Id="b17cda6e-b480-412c-a68f-50125591c3be">
+            <componentMoniker Id="60b42017-8f94-4f28-88ab-5b8911bd55a8" LastKnownName="Locator" />
+            <elementDefinition Id="dc90b234-9482-4baf-bf10-ab15b3f62b3c" />
+          </dependency>
+        </suppliersInternal>
+      </component>
+    </componentModelHasComponents>
+    <componentModelHasComponents>
+      <component Id="60b42017-8f94-4f28-88ab-5b8911bd55a8" name="Locator" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="69ccf9d4-8cae-4d66-a742-99e6e0273ff3" />
+        <generalsInternal>
+          <generalization Id="24c424d6-aa77-485b-8662-2193eb925f3e" isSubstitutable="false">
+            <componentMoniker Id="d329b4c6-9a5e-42f9-a083-02a2bf702f50" LastKnownName="ServiceA" />
+            <elementDefinition Id="b8579b97-4722-4495-843e-b54905d23fcd" />
+          </generalization>
+          <generalization Id="2c239034-b7b5-4f48-9472-fe7f7a270c8f" isSubstitutable="false">
+            <componentMoniker Id="9439cbb7-b2b6-4492-934e-bf5a64ff4556" LastKnownName="ServiceB" />
+            <elementDefinition Id="a6e6f61d-33ff-448f-b1ba-74ff1e129ecd" />
+          </generalization>
+        </generalsInternal>
+      </component>
+    </componentModelHasComponents>
+    <componentModelHasComponents>
+      <component Id="d329b4c6-9a5e-42f9-a083-02a2bf702f50" name="ServiceA" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="3b19185f-587b-4ec3-9a6b-c7a07467cd15" />
+      </component>
+    </componentModelHasComponents>
+    <componentModelHasComponents>
+      <component Id="9439cbb7-b2b6-4492-934e-bf5a64ff4556" name="ServiceB" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="4c6b074d-fbf6-4aff-a474-7e0805ea307e" />
+      </component>
+    </componentModelHasComponents>
+  </packagedElements>
+  <package Id="8f46252e-afa8-4f0a-816a-2c90f8a3239d" name="YouCanHackIt.ArchitectureDesign.DI.Modeling">
+    <elementDefinition Id="2b9d5f50-3188-4b81-8cab-90ffbbe5b6b2" />
+  </package>
+</componentModel>

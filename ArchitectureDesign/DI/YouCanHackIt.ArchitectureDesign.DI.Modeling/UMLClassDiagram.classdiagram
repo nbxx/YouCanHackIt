@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ComponentDesigner" dslVersion="1.0.0.0" Id="0c32b42b-e527-4454-889a-3abaf646ac79" name="UMLClassDiagram" linkedPackageId="fb1e1dd4-6156-414c-aae4-11ba1b98bc81" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+  <profileInstances>
+    <packageHasProfileInstances Id="41fb84b0-0e82-4854-85e5-e64cd6f33da3">
+      <profileInstance Id="a79e1ad3-4ba1-4e5d-bf23-f4384cda7fdf" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="26842757-7f38-4e9f-a61d-910a2b073075">
+      <profileInstance Id="66e55e09-0636-4067-baf1-d7feaa3fe799" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="34f5922d-d741-4efc-8d64-64aaae0e7f13">
+      <profileInstance Id="0403ad98-a4ec-41a5-b9f3-62768babd639" name="TextTemplateBindings">
+        <elementDefinition Id="7bfc6e84-f8b4-4d88-8b7c-a3a691669080" />
+      </profileInstance>
+      <elementDefinition Id="988af919-342d-4ec8-9362-7b806784001e" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <package Id="fb1e1dd4-6156-414c-aae4-11ba1b98bc81" name="YouCanHackIt.ArchitectureDesign.DI.Modeling">
+    <elementDefinition Id="2b9d5f50-3188-4b81-8cab-90ffbbe5b6b2" />
+  </package>
+</logicalClassDesignerModel>
