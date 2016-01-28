@@ -1,7 +1,8 @@
 ﻿using System;
 //using YouCanHackIt.ArchitectureDesign.DI.FirstSolution;
 //using YouCanHackIt.ArchitectureDesign.DI.SecondSolution;
-using YouCanHackIt.ArchitectureDesign.DI.ThirdSolution;
+//using YouCanHackIt.ArchitectureDesign.DI.ThirdSolution;
+using YouCanHackIt.ArchitectureDesign.DI.MEFSolution;
 
 namespace YouCanHackIt.ArchitectureDesign.DI.ConsoleApp
 {

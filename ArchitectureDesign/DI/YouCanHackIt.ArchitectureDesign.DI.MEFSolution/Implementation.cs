@@ -1,11 +1,23 @@
-﻿namespace YouCanHackIt.ArchitectureDesign.DI.ThirdSolution
+﻿namespace YouCanHackIt.ArchitectureDesign.DI.MEFSolution
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.Composition;
+    using System.ComponentModel.Composition.Hosting;
     using System.Linq;
+    using System.Reflection;
 
     public class Implementation
     {
+        // Injection point.
+        [Import]
+        private Cashier _cashier;
+
+        public Implementation()
+        {
+            this.Compose();
+        }
+
         public void BuyProducts()
         {
             var importedCD = new Product("imported CD", 10.99m, SalesTaxType.Default, DutyTaxType.Import);
@@ -20,31 +32,17 @@
             shoppingCart.Buy(headachePills);
             shoppingCart.Buy(importedChocolates);
 
-            #region Manually Dependency Injection.
+            // Cashier is automatic injected by MEF.
+            //Cashier cashier = new Cashier();
+            this._cashier.Checkout(shoppingCart);
+        }
 
-            // Builds all calculators.
-            List<ICalculator> calculators = new List<ICalculator>
-            {
-                new DefaultTaxCalculator(),
-                new FoodTaxCalculator(),
-                new BookTaxCalculator(),
-                new MedicalTaxCalculator(),
-                new DomesticTaxCalculator(),
-                new ImportTaxCalculator()
-            };
-
-            // Builds ICalculatorResolver instance and injects all calculators.
-            ICalculatorResolver calculatorResolver = new CalculatorResolver(calculators);
-
-            // Builds ITaxService instance and injects ICalculatorResolver.
-            ITaxService taxService = new TaxService(calculatorResolver);
-
-            // Builds Cashier instance and injects ITaxService.
-            Cashier cashier = new Cashier(taxService);
-
-            #endregion
-
-            cashier.Checkout(shoppingCart);
+        // Automatic injects all services.
+        private void Compose()
+        {
+            var catalog = new AssemblyCatalog(Assembly.GetExecutingAssembly());
+            CompositionContainer container = new CompositionContainer(catalog);
+            container.ComposeParts(this);
         }
     }
 
@@ -123,14 +121,11 @@
         }
     }
 
+    [Export]
     public class Cashier
     {
-        private readonly ITaxService _taxService;
-
-        public Cashier(ITaxService taxService)
-        {
-            this._taxService = taxService;
-        }
+        [Import(typeof(ITaxService))]
+        private ITaxService _taxService;
 
         public void Checkout(ShoppingCart shoppingCart)
         {
@@ -182,124 +177,71 @@
 
     public interface ICalculator
     {
-        string Name { get; }
         decimal Calculate(decimal value);
     }
 
+    public interface ICalculatorName
+    {
+        string Name { get; }
+    }
+
+    [Export(typeof(ICalculator))]
+    [ExportMetadata("Name", "Default")]
     public class DefaultTaxCalculator : ICalculator
     {
-        public DefaultTaxCalculator()
-        {
-            this.Name = "Default";
-        }
-
-        public string Name { get; private set; }
-
         public decimal Calculate(decimal value)
         {
             return value * 0.09m;
         }
     }
 
+    [Export(typeof(ICalculator))]
+    [ExportMetadata("Name", "Food")]
     public class FoodTaxCalculator : ICalculator
     {
-        public FoodTaxCalculator()
-        {
-            this.Name = "Food";
-        }
-
-        public string Name { get; private set; }
-
         public decimal Calculate(decimal value)
         {
             return value * 0m;
         }
     }
 
+    [Export(typeof(ICalculator))]
+    [ExportMetadata("Name", "Book")]
     public class BookTaxCalculator : ICalculator
     {
-        public BookTaxCalculator()
-        {
-            this.Name = "Book";
-        }
-
-        public string Name { get; private set; }
-
         public decimal Calculate(decimal value)
         {
             return value * 0m;
         }
     }
 
+    [Export(typeof(ICalculator))]
+    [ExportMetadata("Name", "Medical")]
     public class MedicalTaxCalculator : ICalculator
     {
-        public MedicalTaxCalculator()
-        {
-            this.Name = "Medical";
-        }
-
-        public string Name { get; private set; }
-
         public decimal Calculate(decimal value)
         {
             return value * 0m;
         }
     }
 
+    [Export(typeof(ICalculator))]
+    [ExportMetadata("Name", "Domestic")]
     public class DomesticTaxCalculator : ICalculator
     {
-        public DomesticTaxCalculator()
-        {
-            this.Name = "Domestic";
-        }
-
-        public string Name { get; private set; }
-
         public decimal Calculate(decimal value)
         {
             return value * 0m;
         }
     }
 
+    [Export(typeof(ICalculator))]
+    [ExportMetadata("Name", "Import")]
     public class ImportTaxCalculator : ICalculator
     {
-        public ImportTaxCalculator()
-        {
-            this.Name = "Import";
-        }
-
-        public string Name { get; private set; }
-
         public decimal Calculate(decimal value)
         {
             return value * 0.04m;
-        }
-    }
-
-    public interface ICalculatorResolver
-    {
-        ICalculator Resolve(string name);
-    }
-
-    public class CalculatorResolver : ICalculatorResolver
-    {
-        private readonly IEnumerable<ICalculator> _calculators;
-
-        public CalculatorResolver(IEnumerable<ICalculator> calculators)
-        {
-            this._calculators = calculators;
-        }
-
-        public ICalculator Resolve(string name)
-        {
-            ICalculator calculator = this._calculators.FirstOrDefault(calc => calc.Name == name);
-
-            if (calculator == null)
-            {
-                throw new ArgumentException("Calculator was not found", name);
-            }
-
-            return calculator;
         }
     }
 
@@ -308,18 +250,21 @@
         decimal CalculateTax(string taxType, decimal value);
     }
 
+    [Export(typeof(ITaxService))]
     public class TaxService : ITaxService
     {
-        private readonly ICalculatorResolver _calculatorResolver;
-
-        public TaxService(ICalculatorResolver calculatorResolver)
-        {
-            this._calculatorResolver = calculatorResolver;
-        }
+        [ImportMany]
+        private IEnumerable<Lazy<ICalculator, ICalculatorName>> _calculators;
 
         public decimal CalculateTax(string taxType, decimal value)
         {
-            ICalculator calculator = this._calculatorResolver.Resolve(taxType);
+            ICalculator calculator = this._calculators.FirstOrDefault(calc => calc.Metadata.Name == taxType).Value;
+
+            if (calculator == null)
+            {
+                throw new ArgumentException("Calculator was not found", taxType);
+            }
+
             return calculator.Calculate(value);
         }
     }

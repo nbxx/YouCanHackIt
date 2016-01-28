@@ -20,9 +20,9 @@
             shoppingCart.Buy(headachePills);
             shoppingCart.Buy(importedChocolates);
 
-            Cashier Cashier = new Cashier();
+            Cashier cashier = new Cashier();
 
-            Cashier.Checkout(shoppingCart);
+            cashier.Checkout(shoppingCart);
         }
     }
 
