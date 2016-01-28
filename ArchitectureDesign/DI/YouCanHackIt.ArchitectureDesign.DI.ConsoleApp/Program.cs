@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using YouCanHackIt.ArchitectureDesign.DI.SecondSolution;
+//using YouCanHackIt.ArchitectureDesign.DI.FirstSolution;
+//using YouCanHackIt.ArchitectureDesign.DI.SecondSolution;
+using YouCanHackIt.ArchitectureDesign.DI.ThirdSolution;
 
 namespace YouCanHackIt.ArchitectureDesign.DI.ConsoleApp
 {
