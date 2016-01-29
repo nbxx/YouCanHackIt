@@ -4,18 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A094A1D5-5D3E-4E91-9AE5-285825B03690}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{B3E04ADD-1688-4489-A2BF-328D7D3692BE}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>YouCanHackIt.ArchitectureDesign.DI.ConsoleApp</RootNamespace>
-    <AssemblyName>YouCanHackIt.ArchitectureDesign.DI.ConsoleApp</AssemblyName>
+    <RootNamespace>YouCanHackIt.ArchitectureDesign.DI.DevLibSolution</RootNamespace>
+    <AssemblyName>YouCanHackIt.ArchitectureDesign.DI.DevLibSolution</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,10 +20,8 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <UseVSHostingProcess>false</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -35,38 +30,24 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DevLib.Ioc, Version=2.7.1.26080, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DevLib.Ioc.2.7.1.26080\lib\net20\DevLib.Ioc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="Implementation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\YouCanHackIt.ArchitectureDesign.DI.DevLibSolution\YouCanHackIt.ArchitectureDesign.DI.DevLibSolution.csproj">
-      <Project>{b3e04add-1688-4489-a2bf-328d7d3692be}</Project>
-      <Name>YouCanHackIt.ArchitectureDesign.DI.DevLibSolution</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\YouCanHackIt.ArchitectureDesign.DI.FirstSolution\YouCanHackIt.ArchitectureDesign.DI.FirstSolution.csproj">
-      <Project>{f33c3a8a-55ec-41db-a0be-826d2c03277c}</Project>
-      <Name>YouCanHackIt.ArchitectureDesign.DI.FirstSolution</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\YouCanHackIt.ArchitectureDesign.DI.MEFSolution\YouCanHackIt.ArchitectureDesign.DI.MEFSolution.csproj">
-      <Project>{1d382e5d-42ba-4c96-8237-59044d496c07}</Project>
-      <Name>YouCanHackIt.ArchitectureDesign.DI.MEFSolution</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\YouCanHackIt.ArchitectureDesign.DI.SecondSolution\YouCanHackIt.ArchitectureDesign.DI.SecondSolution.csproj">
-      <Project>{fa3a137e-4959-4786-9ef7-d8fbcaf39ce0}</Project>
-      <Name>YouCanHackIt.ArchitectureDesign.DI.SecondSolution</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\YouCanHackIt.ArchitectureDesign.DI.ThirdSolution\YouCanHackIt.ArchitectureDesign.DI.ThirdSolution.csproj">
-      <Project>{d5b94ddd-3a94-427b-9644-119113ea9526}</Project>
-      <Name>YouCanHackIt.ArchitectureDesign.DI.ThirdSolution</Name>
-    </ProjectReference>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
